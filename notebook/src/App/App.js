@@ -1,6 +1,7 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import AddDeal from "../components/AddDeal";
 import CardContainer from "../components/CardContainer";
+import EmptyDeals from "../components/emptyDeals";
 
 const start_deals = [
   {
@@ -26,7 +27,17 @@ const start_deals = [
 
 
 function App() {
-    const [deals, setDeals] = useState(start_deals);
+    const [deals, _setDeals] = useState(start_deals);
+
+    const setDeals = (state)=>{
+      _setDeals(state);
+      localStorage.setItem('deals', JSON.stringify(state));
+    }
+
+    useEffect(() =>{
+      const deals = JSON.parse(localStorage.getItem('deals')) ?? [];
+      setDeals(deals);
+    }, [] )
 
     const addNewDeals = (descr, importance, day) => {
       setDeals([...deals, 
@@ -36,13 +47,21 @@ function App() {
           importance, 
           day
         }]);
-        
-      }
+    };
+
+    const deleteDeal = (id) => {
+      setDeals(deals.filter(elem => elem.id !== id));
+    }
+
+    const deleteWeekDay = (day_num) => {
+      setDeals(deals.filter(elem => elem.day !== day_num));
+    }
 
   return (
     <>
       <AddDeal addNewDeals={addNewDeals}/>
-      <CardContainer deals={deals}/>
+      <CardContainer deleteDeal={deleteDeal} deals={deals} deleteWeekDay={deleteWeekDay}/>
+      
       
     </>
   );

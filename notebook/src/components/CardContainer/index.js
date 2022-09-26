@@ -1,41 +1,43 @@
 import React from 'react'
 import WeekdayCard from '../WeekDay';
 import style from '../CardContainer/style.module.sass'
+import EmptyDeals from '../emptyDeals';
 
-export default function CardContainer({deals}) {
- const result = [
-  {
-    day_num: '1',
-    deals: []
-  },
-  {
-    day_num: '2',
-    deals: []
-  }
- ];
+export default function CardContainer({deals, deleteDeal, deleteWeekDay}) {
+ const result = [];
+ console.log(result);
+ 
+ 
 
  deals.forEach(deal => {
-  const cur_days = result.map(day => day.day_num);
-  if (cur_days.includes(deal.day)){
-    const day = result.find(day => day.day_num === deal.day);
-    day.deals.push(deal)
+  const day = result.find(day => day.day_num === deal.day);
+  
+  if (day !== undefined){
+    day.deals.push(deal);
   }else{
     result.push({
-      day_num: deal.day,
-      deals: [deal]
+     day_num:deal.day,
+     deals: [deal]
     })
   }
-});
-
-
+    });
   
+result.sort((a, b)=> +a.day_num - +b.day_num);
 
 
   return (
     <div className={style.container}>
-        {
-          result.map(day => <WeekdayCard key={day.day_num} label={day.day_num} deals={day.deals}/>)
-        }
+     {
+      result.length === 0 ? <EmptyDeals/> :    
+        result.map(day => 
+        <WeekdayCard 
+        key={day.day_num} 
+        label={day.day_num} 
+        deals={day.deals}
+        deleteDeal={deleteDeal}
+        deleteWeekDay={deleteWeekDay}/>)
+      }
+     
         
     </div>
   )
