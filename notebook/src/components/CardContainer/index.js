@@ -1,8 +1,8 @@
-import React, {useContext} from 'react'
+import React from 'react'
 import WeekdayCard from '../WeekDay';
 import style from '../CardContainer/style.module.sass'
 import EmptyDeals from '../emptyDeals';
-import { Context } from '../../context';
+
 
 export default function CardContainer({deals }) {
 
