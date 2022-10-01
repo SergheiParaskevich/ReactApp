@@ -1,9 +1,12 @@
-import React from 'react'
+import React, {useContext}  from 'react'
 import Select from 'react-select'
 import style from '../AddDeal/style.module.sass'
 import Button from './UI/Button';
+import { Context } from '../../context';
 
-export default function AddDeal ({addNewDeals}) {
+export default function AddDeal () {
+
+  const {addNewDeals} = useContext(Context);
 
     const day_options = [
         { value: 1, label: 'Mon'},

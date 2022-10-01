@@ -1,15 +1,15 @@
-import React from 'react'
+import React, {useContext} from 'react'
 import WeekdayCard from '../WeekDay';
 import style from '../CardContainer/style.module.sass'
 import EmptyDeals from '../emptyDeals';
+import { Context } from '../../context';
 
-export default function CardContainer({deals, deleteDeal, deleteWeekDay}) {
- const result = [];
+export default function CardContainer({deals }) {
+
+  const result = [];
  console.log(result);
  
- 
-
- deals.forEach(deal => {
+  deals.forEach(deal => {
   const day = result.find(day => day.day_num === deal.day);
   
   if (day !== undefined){
@@ -34,8 +34,8 @@ result.sort((a, b)=> +a.day_num - +b.day_num);
         key={day.day_num} 
         label={day.day_num} 
         deals={day.deals}
-        deleteDeal={deleteDeal}
-        deleteWeekDay={deleteWeekDay}/>)
+        
+        />)
       }
      
         

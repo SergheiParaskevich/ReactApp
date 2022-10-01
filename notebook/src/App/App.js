@@ -1,33 +1,11 @@
 import { useState, useEffect } from "react";
 import AddDeal from "../components/AddDeal";
 import CardContainer from "../components/CardContainer";
-import EmptyDeals from "../components/emptyDeals";
-
-const start_deals = [
-  {
-    id: 1,
-    descr: 'meet',
-    importance: '0',
-    day: '1'
-  },
-  {
-    id: 2,
-    descr: 'meet2',
-    importance: '1',
-    day: '1'
-  },
-  {
-    id: 3,
-    descr: 'meet3',
-    importance: '3',
-    day: '1'
-  }
-]
-
+import { Context } from "../context";
 
 
 function App() {
-    const [deals, _setDeals] = useState(start_deals);
+    const [deals, _setDeals] = useState([]);
 
     const setDeals = (state)=>{
       _setDeals(state);
@@ -58,12 +36,15 @@ function App() {
     }
 
   return (
-    <>
-      <AddDeal addNewDeals={addNewDeals}/>
-      <CardContainer deleteDeal={deleteDeal} deals={deals} deleteWeekDay={deleteWeekDay}/>
+    
+    <Context.Provider value={{deleteDeal, deals, deleteWeekDay, addNewDeals}}>
+      <AddDeal />
+      <CardContainer  deals={deals} />
+    </Context.Provider>
+    
       
       
-    </>
+    
   );
 }
 
