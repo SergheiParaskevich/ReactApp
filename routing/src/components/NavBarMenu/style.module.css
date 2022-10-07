@@ -1,0 +1,13 @@
+    .navmenu{
+        max-width: 1280px;
+        padding: 0 80px;
+        margin: auto;
+        height: 100px;
+        background-color: grey;
+        display: flex;
+        
+    }  
+      *{
+        margin: 0;
+      }
+    

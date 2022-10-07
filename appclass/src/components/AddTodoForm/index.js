@@ -6,6 +6,7 @@ export default class AddTodo extends Component {
         event.preventDefault();
         const {addToDo} = this.props;
         const {title} = event.target;
+        addToDo
         title.value = "";
     }
 
