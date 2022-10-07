@@ -1,14 +1,19 @@
-import { Context } from '../../context'
-import { Routes, Route} from
+import Nav from "../Nav";
+import { Routes, Route } from 'react-router-dom'
+import ConfigurationPages from "../../pages/Configuration";
+import TeamsPages from "../../pages/Teams";
 
 function App() {
 
   return (
-    <div>
-     <Context.Provider>
-      
-     </Context.Provider>
-    </div>
+    <>
+    <Nav/>
+    <Routes>
+      <Route path="/configurations" element={ <ConfigurationPages/> }/>
+      <Route path="/teams" element={ <TeamsPages/> }/> 
+    </Routes>
+     
+    </>
   );
 }
 
