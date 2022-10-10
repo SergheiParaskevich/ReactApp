@@ -22,10 +22,6 @@ const submit = event => {
     <Input placeholder='name' name='title' />
     <Input placeholder='price' name='price'/>
     <Input  placeholder='rate sale' name='sale' />
-
-    {/* <input placeholder='name' type="text" name='title' />
-    <input placeholder='price' type="text" name='price'/>
-    <input placeholder='rate sale' type="text" name='sale'/> */}
     <Button>Add</Button>
    </form>
     

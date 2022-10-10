@@ -7,8 +7,13 @@ export default function ListItem({title, price, sale}) {
     <div className={style.itemstyle}>
         <p>{title}</p>
         <div>
-            <p>{price}</p>
-            <p>{sale}</p>
+          {
+            sale === '' ? <p>{price}</p> :  
+            <>  <p style={{color: 'gray', textDecoration: 'line-through'}} >{price}</p> 
+                <p style={{color: '#FFA3A3'}}>{price - price * sale/100}</p> 
+            </>
+          }
+            
         </div>
 
     </div>

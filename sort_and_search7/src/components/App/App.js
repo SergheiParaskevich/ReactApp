@@ -2,14 +2,18 @@ import { useEffect, useState } from "react";
 import AddForm from "../pages/AddForm";
 import { Context } from "../../context";
 import ListProducts from "../pages/ListProducts";
+import SearchForm from "../SearchForm";
 
 
 
 function App() {
  
-  
   const [products, setProduct] = useState([]);
-  const [showProducts, setShowProducts] = useState([products]);
+  const [showProducts, setShowProducts] = useState(products);
+
+  useEffect(() => {setShowProducts(products);
+  }, [products]);
+
   const [searchWord, setSearchWord] = useState("");
 
   const searchProduct = ( title_start) => {
@@ -17,22 +21,19 @@ function App() {
     setShowProducts(filteredProducts);
   }
  
-  useEffect(searchProduct, [products,  searchProduct]);
-
   const addProduct = (title, price, sale) => {
     setProduct([...products,
       {
         id:Date.now(),
         title, price, sale
       }]);
-        console.log(sale);
+    
     };
 
-   
-
-  return (
+   return (
     <Context.Provider value={{addProduct, showProducts, searchProduct, setSearchWord}}>
       <AddForm/>
+      <SearchForm/>
       <ListProducts/>
     </Context.Provider>
   );
