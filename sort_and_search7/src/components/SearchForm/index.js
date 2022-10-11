@@ -6,21 +6,19 @@ import style from '../SearchForm/style.module.sass'
 
 export default function SearchForm() {
 
-const { searchProduct } = useContext(Context);
+const { setSearchWord } = useContext(Context);
 
-  const submit = (event) => {
-    event.preventDefault()
-    const { search } = event.target;
-    searchProduct(search.value);
-   
-
-  }
+  const change = (event) => setSearchWord(event.target.value)
+    
+    
+    
+  
 
   return (
     <div className={style.container}>
-        <form onSubmit={submit}>
+        <form onChange={ change }>
             <Input placeholder="name" name="search" />
-            <Button>Search</Button>
+            
         </form>
     </div>
   )
