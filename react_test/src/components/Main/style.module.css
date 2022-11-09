@@ -1,0 +1,12 @@
+.main{
+    background-color:rosybrown;
+    grid-area: main;
+    color: floralwhite;
+}
+img{
+   
+    height: 500px;
+    object-fit: cover;
+
+
+}

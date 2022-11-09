@@ -1,0 +1,11 @@
+.app_wrapper{
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 200px 1fr;
+        grid-template-areas: 
+            "header header"
+            "sidebar main"
+            "sidebar main";
+        grid-gap: 1rem;
+        width: 1200px;
+}

@@ -1,5 +1,6 @@
 header{
     background-color: khaki;
+    grid-area: header;
 }
 header img {
     margin: 5px;
