@@ -1,8 +1,12 @@
-nav{
-   background-color:beige;
+.navbar {
+   background-color: beige;
    grid-area: sidebar;
 }
 
-a{
+a {
    color: firebrick;
+   text-decoration: none;
+}
+.navbar div a.active{
+   color: black;
 }
