@@ -5,20 +5,20 @@ import style from "./style.module.css";
 export default function Navbar() {
   return (
     <nav className={style.navbar}>
-      <div>
-        <NavLink to='/profile'>Profile</NavLink>
+      <div className={style.item}>
+        <NavLink to='/profile' className={({ isActive })  => isActive ? style.active : undefined}>Profile</NavLink>
       </div>
-      <div>
-       <NavLink to='/messages' className={style.active}>Messages</NavLink>
+      <div className={style.item}>
+       <NavLink to='/messages' className={({ isActive })  => isActive ? style.active : undefined}>Messages</NavLink>
       </div>
-      <div>
-        <NavLink to='/news'>News</NavLink>
+      <div className={style.item}>
+        <NavLink to='/news' className={({ isActive })  => isActive ? style.active : undefined}>News</NavLink>
       </div>
-      <div>
-      <NavLink to='/music'>Music</NavLink>
+      <div className={style.item}>
+      <NavLink to='/music' className={({ isActive })  => isActive ? style.active : undefined}>Music</NavLink>
       </div>
-      <div>
-        <NavLink to='/options'>Options</NavLink>
+      <div className={style.item}>
+        <NavLink to='/options' className={({ isActive })  => isActive ? style.active : undefined}>Options</NavLink>
       </div>
     </nav>
   );

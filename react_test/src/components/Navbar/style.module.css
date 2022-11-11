@@ -3,10 +3,11 @@
    grid-area: sidebar;
 }
 
-a {
+.item a {
    color: firebrick;
    text-decoration: none;
 }
-.navbar div a.active{
+
+.item a.active{
    color: black;
 }
